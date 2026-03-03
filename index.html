@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlog Tracker</title>
+    <link rel="stylesheet" href="public/css/style.css">
+    <script src="public/js/script.js" defer></script>
+</head>
+<body>
+
+    <main>
+        <!-- HEADER-->
+        <header>
+            <div class="logo-section">
+                <button id="opensidemenu" title="Abrir menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <h1>Backlog Tracker</h1>
+            </div>
+
+            <div class="actions">
+                <button id="btnnewtask" title="Adicionar tarefa">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
+                    </svg>
+                </button>
+                <button id="btnopenconfig" title="Configurações">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- SIDE MENU -->
+        <aside class="logo-section" id="sidemenu">
+            <button id="closesidemenu" title="Fechar menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Relatórios</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+
+        <!-- NEW TASK MODAL -->
+        <div id="modalnewtask" class="modal">
+            <div class="modal-content">
+                <button id="btnclosemodalnewtask" class="modal-close">✕</button>
+                <form>
+                    <p>ID</p>
+                    <input id="id-task" name="id" required placeholder="ID da tarefa" class="task-modal-input" >
+                    <p> Title </p>
+                    <input id="title-task" name="title" required placeholder="Título da tarefa" class="task-modal-input" >
+                    
+                    <p>Description</p>
+                    <textarea class="task-modal-textarea" placeholder="Descreva o objetivo da tarefa..."> </textarea>
+                    
+                    <div class="task-modal-intiate-status">
+                            <label class="task-modal-label">Status Inicial</label>
+                                <select class="task-modal-select">
+                                    <option>Desenv. Backend</option>
+                                    <option>Review</option>
+                                    <option>Published</option>
+                                </select>
+                            <button id="btncreatemodalnewtask" class="task-modal-btn-create">Create</button> <!-- Enviar do form -->
+                            </div>
+                    </div>
+                
+                </form>
+                
+                
+
+            </div>
+
+        </div>
+
+        <!-- CONFIG MODAL -->
+        <div id="modalconfig" class="modal">
+            <div class="modal-content">
+                <h2>Configurações</h2>
+                <p>Adicionar novos status, editar ou excluir status existentes...</p>
+                <button id="btncloseconfig" class="modal-close">✕</button>
+            </div>
+        </div>
+
+        <!-- INDICATORS -->
+        <section class="indicators-section">
+            <div class="indicators-grid">
+                <div class="indicator-card develop">
+                    <div class="indicator-label">Develop</div>
+                    <div class="indicator-content">
+                        <span class="indicator-count develop" id="develop-count">12</span>
+                        <svg class="indicator-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M93.31,70,28,128l65.27,58a8,8,0,1,1-10.62,12l-72-64a8,8,0,0,1,0-12l72-64A8,8,0,1,1,93.31,70Zm152,52-72-64a8,8,0,0,0-10.62,12L228,128l-65.27,58a8,8,0,1,0,10.62,12l72-64a8,8,0,0,0,0-12Z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="indicator-card review">
+                    <div class="indicator-label">Review</div>
+                    <div class="indicator-content">
+                        <span class="indicator-count review" id="review-count">5</span>
+                        <svg class="indicator-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="indicator-card published">
+                    <div class="indicator-label">Published</div>
+                    <div class="indicator-content">
+                        <span class="indicator-count published" id="published-count">28</span>
+                        <svg class="indicator-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M149.61,85.71l-89.6,88a8,8,0,0,1-11.22,0L10.39,136a8,8,0,1,1,11.22-11.41L54.4,156.79l84-82.5a8,8,0,1,1,11.22,11.42Zm96.1-11.32a8,8,0,0,0-11.32-.1l-84,82.5-18.83-18.5a8,8,0,0,0-11.21,11.42l24.43,24a8,8,0,0,0,11.22,0l89.6-88A8,8,0,0,0,245.71,74.39Z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="indicator-card deleted">
+                    <div class="indicator-label">Deleted</div>
+                    <div class="indicator-content">
+                        <span class="indicator-count deleted" id="deleted-count">2</span>
+                        <svg class="indicator-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TASKS SECTION -->
+        <section class="tasks-section">
+            <div class="tasks-container">
+                <!-- FILTERS -->
+                <div class="filter-section">
+                    <div class="filter-group">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn inactive">Develop</button>
+                        <button class="filter-btn inactive">Review</button>
+                    </div>
+                </div>
+
+                <!-- TASK LIST -->
+                <ul class="task-list" id="taskList">
+                    <li class="task-item develop">
+                        <!-- infos que viram do banco de dados após criar uma nova task esse é apenas o layout base  -->
+                        <div class="task-left">
+                            <span class="task-id">10672</span>
+                            <h3 class="task-title">Migração de GA</h3>
+                        </div>
+                        <div class="task-right">
+                            <span class="task-status">Desenv. Backend</span>
+                            <button id="btnopenmodaltask" class="task-toggle" title="Expandir tarefa">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- TASK MODAL -->
+                <div id="modaltask" class="modal">
+                    <div class="modal-content task-modal-content">
+                        <!-- HEADER -->
+                        <button id="btnclosemodaltask" class="modal-close">✕</button>
+
+
+                        <div class="task-modal-header"> <!-- ADD MT - 10PX -->
+                            
+                            <div class="task-modal-title-section">
+                                <span class="task-modal-id">#10672</span>
+                                <h2 class="task-modal-title">migração ga</h2>
+                            </div>
+                            <span class="task-modal-badge develop">DESENV. BACKEND</span>
+                            
+                        </div>
+
+                        <!-- CONTENT -->
+                        <div class="task-modal-body">
+                            <div class="task-modal-column">
+                                <div class="task-modal-section-title">OBJETIVO</div>
+                                <textarea class="task-modal-textarea" placeholder="Descreva o objetivo da tarefa...">aaaaaaaaaaaaaaaaaaa</textarea>
+                            </div>
+
+                            <div class="task-modal-column">
+                                <div class="task-modal-section-title">HISTÓRICO RECENTE</div>
+                                <div class="task-modal-history">
+                                    <div class="history-item">
+                                        <span class="history-date">28/2:</span>
+                                        <span class="history-text">Criado em Desenv. Backend</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MODAL TASK FOOTER -->
+                        <div class="task-modal-footer">
+                            <div class="task-modal-control">
+                                <label class="task-modal-label">MOVER PARA</label>
+                                <select class="task-modal-select">
+                                    <option>Desenv. Backend</option>
+                                    <option>Review</option>
+                                    <option>Published</option>
+                                </select>
+                            </div>
+
+                            <div class="task-modal-control">
+                                <label class="task-modal-label">NOTA (OPCIONAL)</label>
+                                <input type="text" class="task-modal-input" placeholder="Ex: Bug corrigido...">
+                            </div>
+
+                            <button class="task-modal-btn-update">Atualizar</button>
+                            <button class="task-modal-btn-delete" title="Deletar tarefa">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MORE BUTTON -->
+                <div style="text-align: center; margin-top: 24px;">
+                    <button onclick="loadMoreTask()" style="background: none; border: none; color: #9ca3af; font-weight: bold; cursor: pointer;">More Task</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2026 Backlog Tracker. All rights reserved Emily.</p>
+        </footer>
+    </main>
+
+</body>
+</html>
