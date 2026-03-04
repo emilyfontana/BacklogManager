@@ -1,12 +1,7 @@
-<<<<<<< HEAD
+ 
 
 /* BACKLOG TRACKER - CUSTOM CSS */
 
-=======
-/* ============================================ */
-/* BACKLOG TRACKER - CUSTOM CSS */
-/* ============================================ */
->>>>>>> main
 
 * {
     margin: 0;
@@ -80,11 +75,7 @@ header .actions {
     gap: 16px;
 }
 
-<<<<<<< HEAD
 /* === SIDE MENU - irá conter outras páginas ainda á definir  === */
-=======
-/* === SIDE MENU === */
->>>>>>> main
 #sidemenu {
     position: fixed;
     top: 0;
@@ -150,13 +141,10 @@ header .actions {
 }
 
 /* === MODALS === */
-<<<<<<< HEAD
 
 /* === MODAL CONFIGURAÇÃO - NEW STATUS === */
 /* === MODAL NEWTASK === */
 /* === MODAL DETAILS TASK === */
-=======
->>>>>>> main
 .modal {
     position: fixed;
     top: 0;
@@ -184,7 +172,6 @@ header .actions {
     position: relative;
 }
 
-<<<<<<< HEAD
 /* === mesmo botão close para os modais - será reciclado === */
 
 .modal-close {
@@ -194,23 +181,11 @@ header .actions {
     background: none;
     border: none;
     font-size: 25px;
-=======
-.modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: none;
-    border: none;
-    font-size: 20px;
->>>>>>> main
     color: #6b7280;
     cursor: pointer;
     padding: 4px;
     transition: color 0.2s;
-<<<<<<< HEAD
     
-=======
->>>>>>> main
 }
 
 .modal-close:hover {
@@ -218,34 +193,31 @@ header .actions {
 }
 
 /* === INDICATORS SECTION === */
-<<<<<<< HEAD
 /* ===  SERÁ ALIMENTADO VIA BANCO COM INSERÇÃO DE BAKLOGS NOS DEVIDOS STATUS === */
-=======
->>>>>>> main
 .indicators-section {
   
-    padding: 24px 0;
-    margin: 20px;
+    padding: 20px 0;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .indicators-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 50px;
     width: 100%;
-    height: auto;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 10px;
 }
 
 .indicator-card {
     background-color: white;
-    padding: 24px;
+    padding: 38px;
     border-radius: 32px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -256,6 +228,10 @@ header .actions {
 
 .indicator-card:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.indicator-card.all {
+    border-bottom-color: #8b8c8f;
 }
 
 .indicator-card.develop {
@@ -296,11 +272,12 @@ header .actions {
     font-weight: 900;
 }
 
-<<<<<<< HEAD
 /* === ESSES SÃO OS STATUS INICIAIS NÃO PODEM SER APAGADOS - INICIAM COM ESSES 4 === */
+.indicator-count.all {
+    color: #5f6675;
+}
 
-=======
->>>>>>> main
+
 .indicator-count.develop {
     color: #2563eb;
 }
@@ -321,6 +298,7 @@ header .actions {
     width: 24px;
     height: 24px;
 }
+
 
 /* === FILTER SECTION === */
 .filter-section {
@@ -361,6 +339,66 @@ header .actions {
 .filter-btn.inactive:hover {
     color: #000;
 }
+
+/* content form new task */
+.form-new-task{
+    display: grid;
+    margin-bottom: 32px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+    font-family: inherit;
+}
+
+.form-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.form-content .form-group {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.form-content p {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.form-description{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.form-description p {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+    margin: 0 0 6px 0;
+}
+
+.task-modal-intiate-status {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+}
+
+/* Modal New Task Form Layout */
+
+
+
 
 /* === TASK LIST SECTION === */
 .tasks-section {
@@ -476,11 +514,7 @@ header .actions {
     transform: scale(1.1);
 }
 
-<<<<<<< HEAD
 /* === TASK MODAL DETAILS TASK === */
-=======
-/* === TASK MODAL === */
->>>>>>> main
 .task-modal-content {
     width: 90% !important;
     max-width: 900px !important;
@@ -493,10 +527,7 @@ header .actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
-<<<<<<< HEAD
     margin-top: 35px;
-=======
->>>>>>> main
     margin-bottom: 32px;
     border-bottom: 1px solid #e5e7eb;
     padding-bottom: 16px;
@@ -532,12 +563,9 @@ header .actions {
     margin: 0 16px;
 }
 
-<<<<<<< HEAD
 /* os badges deverão ser definidos em config e posteriormente puxados via banco  */
 /* Badges obrigatórios -> aqueles que serão constabilizados nos indicadores  */
 
-=======
->>>>>>> main
 .task-modal-badge.develop {
     background-color: #2563eb;
 }
@@ -636,12 +664,14 @@ header .actions {
 
 .task-modal-select,
 .task-modal-input {
+  
     padding: 8px 12px;
     border: 1px solid #e5e7eb;
     border-radius: 6px;
     font-family: inherit;
     font-size: 13px;
     color: #1f2937;
+    max-width: 150px;
 }
 
 .task-modal-select:focus,
@@ -668,7 +698,6 @@ header .actions {
     background-color: #111827;
 }
 
-<<<<<<< HEAD
 .task-modal-btn-create {
     padding: 8px 20px;
     background-color: #216ad1;
@@ -687,8 +716,6 @@ header .actions {
 }
 
 
-=======
->>>>>>> main
 .task-modal-btn-delete {
     background: none;
     border: none;

@@ -10,11 +10,7 @@
 <body>
 
     <main>
-<<<<<<< HEAD
         <!-- HEADER-->
-=======
-        <!-- HEADER -->
->>>>>>> main
         <header>
             <div class="logo-section">
                 <button id="opensidemenu" title="Abrir menu">
@@ -26,11 +22,7 @@
             </div>
 
             <div class="actions">
-<<<<<<< HEAD
                 <button id="btnnewtask" title="Adicionar tarefa">
-=======
-                <button id="newtask" title="Adicionar tarefa">
->>>>>>> main
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
                         <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm48-88a8,8,0,0,1-8,8H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32A8,8,0,0,1,176,128Z"></path>
                     </svg>
@@ -59,33 +51,45 @@
             </nav>
         </aside>
 
-<<<<<<< HEAD
 
         <!-- NEW TASK MODAL -->
         <div id="modalnewtask" class="modal">
             <div class="modal-content">
                 <button id="btnclosemodalnewtask" class="modal-close">✕</button>
-                <form>
-                    <p>ID</p>
-                    <input id="id-task" name="id" required placeholder="ID da tarefa" class="task-modal-input" >
-                    <p> Title </p>
-                    <input id="title-task" name="title" required placeholder="Título da tarefa" class="task-modal-input" >
+                <div class="form-new-task">
+                    <form>
+                        <div class="form-content"> 
+                            <div class="form-group">
+                                <p>ID</p>
+                                <input id="id-task" name="id" type="number" min="1" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
+                            </div>
+                            <div class="form-group">
+                                <p>Title</p>
+                                <input id="title-task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 100 caracteres">
+                            </div>
+                        </div>
                     
-                    <p>Description</p>
-                    <textarea class="task-modal-textarea" placeholder="Descreva o objetivo da tarefa..."> </textarea>
-                    
-                    <div class="task-modal-intiate-status">
-                            <label class="task-modal-label">Status Inicial</label>
+                        <div class="form-description"> 
+                            <p>Description</p>
+                            <textarea class="task-modal-textarea" maxlength="100" placeholder="Descreva o objetivo da tarefa..." title="Máximo 500 caracteres"></textarea>
+                        </div>
+                        
+                        <div class="task-modal-intiate-status">
+                            <div class="form-group">
+                                <label class="task-modal-label">Status Inicial</label>
                                 <select class="task-modal-select">
                                     <option>Desenv. Backend</option>
                                     <option>Review</option>
                                     <option>Published</option>
                                 </select>
-                            <button id="btncreatemodalnewtask" class="task-modal-btn-create">Create</button> <!-- Enviar do form -->
                             </div>
-                    </div>
-                
-                </form>
+                            <button id="btncreatemodalnewtask" class="task-modal-btn-create">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+                    
                 
                 
 
@@ -93,8 +97,6 @@
 
         </div>
 
-=======
->>>>>>> main
         <!-- CONFIG MODAL -->
         <div id="modalconfig" class="modal">
             <div class="modal-content">
@@ -107,6 +109,12 @@
         <!-- INDICATORS -->
         <section class="indicators-section">
             <div class="indicators-grid">
+                <div class="indicator-card all">
+                    <div class="indicator-label">All Tasks</div>
+                    <div class="indicator-content">
+                        <span class="indicator-count all" id="all-count">20</span>                        </svg>
+                    </div>
+                </div>
                 <div class="indicator-card develop">
                     <div class="indicator-label">Develop</div>
                     <div class="indicator-content">
@@ -184,25 +192,17 @@
                 <div id="modaltask" class="modal">
                     <div class="modal-content task-modal-content">
                         <!-- HEADER -->
-<<<<<<< HEAD
                         <button id="btnclosemodaltask" class="modal-close">✕</button>
 
 
                         <div class="task-modal-header"> <!-- ADD MT - 10PX -->
                             
-=======
-                        <div class="task-modal-header">
->>>>>>> main
                             <div class="task-modal-title-section">
                                 <span class="task-modal-id">#10672</span>
                                 <h2 class="task-modal-title">migração ga</h2>
                             </div>
                             <span class="task-modal-badge develop">DESENV. BACKEND</span>
-<<<<<<< HEAD
                             
-=======
-                            <button id="btnclosemodaltask" class="modal-close">✕</button>
->>>>>>> main
                         </div>
 
                         <!-- CONTENT -->
@@ -223,11 +223,7 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
                         <!-- MODAL TASK FOOTER -->
-=======
-                        <!-- FOOTER -->
->>>>>>> main
                         <div class="task-modal-footer">
                             <div class="task-modal-control">
                                 <label class="task-modal-label">MOVER PARA</label>
