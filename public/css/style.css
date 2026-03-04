@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+
+/* BACKLOG TRACKER - CUSTOM CSS */
+
+=======
 /* ============================================ */
 /* BACKLOG TRACKER - CUSTOM CSS */
 /* ============================================ */
+>>>>>>> main
 
 * {
     margin: 0;
@@ -74,7 +80,11 @@ header .actions {
     gap: 16px;
 }
 
+<<<<<<< HEAD
+/* === SIDE MENU - irá conter outras páginas ainda á definir  === */
+=======
 /* === SIDE MENU === */
+>>>>>>> main
 #sidemenu {
     position: fixed;
     top: 0;
@@ -140,6 +150,13 @@ header .actions {
 }
 
 /* === MODALS === */
+<<<<<<< HEAD
+
+/* === MODAL CONFIGURAÇÃO - NEW STATUS === */
+/* === MODAL NEWTASK === */
+/* === MODAL DETAILS TASK === */
+=======
+>>>>>>> main
 .modal {
     position: fixed;
     top: 0;
@@ -167,6 +184,17 @@ header .actions {
     position: relative;
 }
 
+<<<<<<< HEAD
+/* === mesmo botão close para os modais - será reciclado === */
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 25px;
+=======
 .modal-close {
     position: absolute;
     top: 16px;
@@ -174,10 +202,15 @@ header .actions {
     background: none;
     border: none;
     font-size: 20px;
+>>>>>>> main
     color: #6b7280;
     cursor: pointer;
     padding: 4px;
     transition: color 0.2s;
+<<<<<<< HEAD
+    
+=======
+>>>>>>> main
 }
 
 .modal-close:hover {
@@ -185,6 +218,10 @@ header .actions {
 }
 
 /* === INDICATORS SECTION === */
+<<<<<<< HEAD
+/* ===  SERÁ ALIMENTADO VIA BANCO COM INSERÇÃO DE BAKLOGS NOS DEVIDOS STATUS === */
+=======
+>>>>>>> main
 .indicators-section {
   
     padding: 24px 0;
@@ -259,6 +296,11 @@ header .actions {
     font-weight: 900;
 }
 
+<<<<<<< HEAD
+/* === ESSES SÃO OS STATUS INICIAIS NÃO PODEM SER APAGADOS - INICIAM COM ESSES 4 === */
+
+=======
+>>>>>>> main
 .indicator-count.develop {
     color: #2563eb;
 }
@@ -434,7 +476,11 @@ header .actions {
     transform: scale(1.1);
 }
 
+<<<<<<< HEAD
+/* === TASK MODAL DETAILS TASK === */
+=======
 /* === TASK MODAL === */
+>>>>>>> main
 .task-modal-content {
     width: 90% !important;
     max-width: 900px !important;
@@ -447,6 +493,10 @@ header .actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
+<<<<<<< HEAD
+    margin-top: 35px;
+=======
+>>>>>>> main
     margin-bottom: 32px;
     border-bottom: 1px solid #e5e7eb;
     padding-bottom: 16px;
@@ -482,6 +532,12 @@ header .actions {
     margin: 0 16px;
 }
 
+<<<<<<< HEAD
+/* os badges deverão ser definidos em config e posteriormente puxados via banco  */
+/* Badges obrigatórios -> aqueles que serão constabilizados nos indicadores  */
+
+=======
+>>>>>>> main
 .task-modal-badge.develop {
     background-color: #2563eb;
 }
@@ -612,6 +668,27 @@ header .actions {
     background-color: #111827;
 }
 
+<<<<<<< HEAD
+.task-modal-btn-create {
+    padding: 8px 20px;
+    background-color: #216ad1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: fit-content;
+}
+
+.task-modal-btn-create:hover {
+    background-color: #1e4db3;
+}
+
+
+=======
+>>>>>>> main
 .task-modal-btn-delete {
     background: none;
     border: none;

@@ -1,55 +1,193 @@
 //get elements
+<<<<<<< HEAD
+
+//modal task 
+
+=======
+>>>>>>> main
 const btnopenmodaltask = document.getElementById("btnopenmodaltask");
 const modaltask = document.getElementById("modaltask");
 const btnclosemodaltask = document.getElementById("btnclosemodaltask");
 
+<<<<<<< HEAD
+// modal create new task
+const btnnewtask = document.getElementById("btnnewtask");
+const modalnewtask = document.getElementById("modalnewtask");
+const btnclosemodalnewtask = document.getElementById("btnclosemodalnewtask");
+const btncreatemodalnewtask = document.getElementById("btncreatemodalnewtask");
+
+// side menu
+=======
 const newtask = document.getElementById("newtask");
 
+>>>>>>> main
 const sidemenu = document.getElementById("sidemenu");
 const opensidemenu = document.getElementById("opensidemenu");
 const closesidemenu = document.getElementById("closesidemenu");
 
+<<<<<<< HEAD
+// modal config
+=======
+>>>>>>> main
 const btnopenconfig = document.getElementById("btnopenconfig");
 const modalconfig = document.getElementById("modalconfig");
 const btncloseconfig = document.getElementById("btncloseconfig");
 
+<<<<<<< HEAD
+
+// Funções de controle de modais
+
+function OpenNewTask() {
+   
+    if (!modalnewtask) return;  //checagem de existência para evitar erros quando o elemento não existe.
+    modalnewtask.classList.add("active");
+    console.log("modal new task aberto");
+}
+
+function CloseNewTask(){
+    if (!modalnewtask) return;
+    modalnewtask.classList.remove("active");
+    console.log("modal new task fechado");
+}
+
+function createNewTask(){
+    
+    alert("atualizado no banco de dados (simulado)");
+}
+
+
+//função modal config - new status
+function openConfigModal() {
+    if (!modalconfig) return;
+=======
 // configuration modal helpers
 function openConfigModal() {
+>>>>>>> main
     modalconfig.classList.add("active");
     console.log("Config modal opened");
 }
 
 function closeConfigModal() {
+<<<<<<< HEAD
+    if (!modalconfig) return;
+=======
+>>>>>>> main
     modalconfig.classList.remove("active");
     console.log("Config modal closed"); 
 }
 
+<<<<<<< HEAD
+//função side menu
+
+function openSideMenu() {
+    if (!sidemenu) return;
+=======
 // side menu toggles
 function openSideMenu() {
+>>>>>>> main
     sidemenu.classList.add("active");
     console.log("Side menu opened");
 }
 
 function closeSideMenu() {
+<<<<<<< HEAD
+    if (!sidemenu) return;
+=======
+>>>>>>> main
     sidemenu.classList.remove("active");
     console.log("Side menu closed");
 }
 
+<<<<<<< HEAD
+//função modal task
+
+function openTaskModal() {
+    if (!modaltask) return;
+=======
 // TODO: replace alert with real implementation
 function addTask() {
     alert("Function to add a new task will be implemented here.");
 }
 
 function openTaskModal() {
+>>>>>>> main
     modaltask.classList.add("active");
     console.log("Task modal opened");
 }
 
 function closeTaskModal() {
+<<<<<<< HEAD
+    if (!modaltask) return;
+=======
+>>>>>>> main
     modaltask.classList.remove("active");
     console.log("Task modal closed");
 }
 
+<<<<<<< HEAD
+// -----------------------------
+// Wiring de eventos (com checagens)
+// -----------------------------
+// ERRO comum que causava falha silenciosa: se um getElementById retorna null,
+// chamar addEventListener sem checar gera TypeError; aqui evitamos isso com ifs.
+
+// side menu
+if (opensidemenu) opensidemenu.addEventListener("click", openSideMenu);
+if (closesidemenu) closesidemenu.addEventListener("click", closeSideMenu);
+
+// new task modal trigger
+if (btnnewtask) btnnewtask.addEventListener("click", OpenNewTask);
+
+// task modal open/close
+if (btnopenmodaltask) btnopenmodaltask.addEventListener("click", openTaskModal);
+if (btnclosemodaltask) btnclosemodaltask.addEventListener("click", closeTaskModal);
+
+// config modal
+if (btnopenconfig) btnopenconfig.addEventListener("click", openConfigModal);
+if (btncloseconfig) btncloseconfig.addEventListener("click", closeConfigModal);
+
+// CORREÇÃO IMPORTANTE:
+// ERRO detectado no seu arquivo original: havia um erro de sintaxe no listener global de keyboard
+// (fechamento extra de chaves/parênteses) — isso causa SyntaxError e impede TODO o JS de rodar.
+// Aqui está o listener corrigido (sem chaves/parênteses extras).
+
+// fechar modais ao clicar fora do conteúdo
+if (modaltask) {
+    modaltask.addEventListener("click", function(event) {
+        if (event.target === modaltask) {
+            closeTaskModal();
+        }
+    });
+}
+
+if (modalconfig) {
+    modalconfig.addEventListener("click", function(event) {
+        if (event.target === modalconfig) {
+            closeConfigModal();
+        }
+    });
+}
+
+if (modalnewtask) {
+    modalnewtask.addEventListener("click", function(event) {
+        if (event.target === modalnewtask) {
+            CloseNewTask();
+        }
+    });
+}
+
+// Adiciona listeners do botão fechar/atualizar do modal "new task"
+// ERRO anterior: você havia obtido os elementos mas não havia ligado os botões a nenhuma ação.
+if (btnclosemodalnewtask) btnclosemodalnewtask.addEventListener("click", CloseNewTask);
+if (btnupdatemodalnewtask) btnupdatemodalnewtask.addEventListener("click", UpdateNewTask);
+
+// handler global de Escape (SINTAXE CORRIGIDA)
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        if (modalconfig && modalconfig.classList.contains('active')) closeConfigModal();
+        if (modaltask && modaltask.classList.contains('active')) closeTaskModal();
+        if (modalnewtask && modalnewtask.classList.contains('active')) CloseNewTask();
+=======
 // wire up click handlers
 opensidemenu.addEventListener("click", openSideMenu);
 closesidemenu.addEventListener("click", closeSideMenu);
@@ -78,6 +216,7 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         if (modalconfig.classList.contains('active')) closeConfigModal();
         if (modaltask.classList.contains('active')) closeTaskModal();
+>>>>>>> main
     }
 });
 
@@ -134,9 +273,12 @@ document.addEventListener('keydown', function(e) {
 //ou será mais simples, apenas contando o número de tasks concluídas por status e por prioridade?
 
 
+<<<<<<< HEAD
+=======
 // dashboard
 
 //dentro do dashbaord, deverá ter indicadores visuais (gráficos de barras, pizza, etc) mostrando o número de tasks por status e tempo médio para conclusão
 //deverá ter filtros para visualizar tasks por prioridade, status e data de criação/conclusão
 
 
+>>>>>>> main
