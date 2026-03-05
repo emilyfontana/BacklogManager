@@ -344,18 +344,12 @@ header .actions {
 .form-new-task{
     display: grid;
     margin-bottom: 32px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #9ca3af;
-    letter-spacing: 0.05em;
-    font-family: inherit;
 }
 
 .form-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 25px;
+    
     margin-bottom: 30px;
 }
 
@@ -366,12 +360,13 @@ header .actions {
 }
 
 .form-content p {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: #9ca3af;
     letter-spacing: 0.05em;
-    margin: 0;
+    font-family: inherit;
+    margin: 10px;
 }
 
 .form-description{
@@ -381,12 +376,13 @@ header .actions {
 }
 
 .form-description p {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: #9ca3af;
     letter-spacing: 0.05em;
-    margin: 0 0 6px 0;
+    font-family: inherit;
+    margin: 10px;
 }
 
 .task-modal-intiate-status {
@@ -523,6 +519,8 @@ header .actions {
     gap: 0 !important;
 }
 
+
+
 .task-modal-header {
     display: flex;
     align-items: center;
@@ -564,6 +562,107 @@ header .actions {
 }
 
 /* os badges deverão ser definidos em config e posteriormente puxados via banco  */
+.modal-title{
+   font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #04317e;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+
+.form-new-status{
+  display: grid;
+  grid-column: span 2;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  
+
+}
+
+.new-status{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+
+}
+
+.form-new-status p {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    
+
+}
+
+.title-list-status{
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.05em;
+    margin: 10px;
+}
+.btn-create-new-status{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+
+
+}
+
+
+.task-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #3d3a3a00;
+    max-width: 1000px;
+
+}
+
+.task-list-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    background-color: rgba(240, 240, 240, 0.384);
+    padding: 10px;
+    
+}
+
+.task-list-option:hover {
+    
+    box-shadow: #0000003d 0px 4px 6px;
+    border-color: #0000003d;
+}
+
+.btn-delete-status {
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-delete-status:hover {
+    color: #b91c1c;
+    transform: scale(1.1);
+}
+
 /* Badges obrigatórios -> aqueles que serão constabilizados nos indicadores  */
 
 .task-modal-badge.develop {
@@ -655,7 +754,7 @@ header .actions {
 }
 
 .task-modal-label {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     color: #9ca3af;

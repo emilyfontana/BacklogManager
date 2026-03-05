@@ -55,6 +55,7 @@
         <!-- NEW TASK MODAL -->
         <div id="modalnewtask" class="modal">
             <div class="modal-content">
+                <h1 class="modal-title">Nova Tarefa</h1>
                 <button id="btnclosemodalnewtask" class="modal-close">✕</button>
                 <div class="form-new-task">
                     <form>
@@ -91,19 +92,72 @@
         </div>
                     
                 
-                
-
-            </div>
-
-        </div>
+            
 
         <!-- CONFIG MODAL -->
         <div id="modalconfig" class="modal">
             <div class="modal-content">
-                <h2>Configurações</h2>
-                <p>Adicionar novos status, editar ou excluir status existentes...</p>
+                <h1 class="modal-title">Configurações</h1>
                 <button id="btncloseconfig" class="modal-close">✕</button>
+            
+                <form class="form-new-status"  >
+                    <p>Adicionar novo status</p>
+                    <div class="new-status">
+                        
+                        <input id="newstatus" name="newstatus" required maxlength="20" placeholder="Novo status" class="task-modal-input" title="Máximo 20 caracteres">
+
+                        <div class="btn-create-new-status">
+                            <button id="btncreatenewstatus" class="task-modal-btn-create" type="submit" >Create</button>
+
+                        </div>
+                    </div>
+                </form>
+                <p class="title-list-status">Lista de status atuais</p>
+                <div class="task-list" id="configTaskList">
+
+                    <div class="task-list-option">
+                        <span>Desenv. Backend</span>
+                        <button class="btn-delete-status" title="Deletar status" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="18" 
+                                height="18" 
+                                fill="currentColor" 
+                                viewBox="0 0 256 256">
+                                <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="task-list-option">
+                        <span>Review</span>
+                        <button class="btn-delete-status" title="Deletar status" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="18" 
+                                height="18" 
+                                fill="currentColor" 
+                                viewBox="0 0 256 256">
+                                <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="task-list-option">
+                        <span>Published</span>
+                        <button class="btn-delete-status" title="Deletar status" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" 
+                                width="18" 
+                                height="18" 
+                                fill="currentColor" 
+                                viewBox="0 0 256 256">
+                                <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
             </div>
+
+
         </div>
 
         <!-- INDICATORS -->
