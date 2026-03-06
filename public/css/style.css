@@ -3,6 +3,14 @@
 /* BACKLOG TRACKER - CUSTOM CSS */
 
 
+.error{
+    color: #dc2626;
+    font-size: 11px;
+    margin-top: 4px;
+    font-weight: 600;
+    display: none;
+}
+
 * {
     margin: 0;
     padding: 0;

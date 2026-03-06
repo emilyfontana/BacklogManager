@@ -1,8 +1,48 @@
  <!-- tratar agora dos posts e do form-->
 <!-- PHP and JS-->
+<!-- PHP and JS
+ 
+
+fazer label para antes de receber um dado input ou qlqr outro 
+
+get e post criam um array (key=>value). key = nome da forma e values= informação vinda do user 
+
+$_GET and $_POST são superglobais, ou seja, estão disponíveis em todo o escopo do script. 
+Eles são usados para coletar dados enviados por meio de formulários HTML 
+
+GET = URL QUERY PARMETERS
+POST = SCRIPT VIA HTTP POST METHOD
+
+QUANDO USAR GET?
+
+A INFORMAÇÃO VINDA DO GET É VISIVEL PARA TODS E PODE SER COMPARTILHADA
+IDEAL PARA FILTROS, PESQUISAS E QUALQUER SITUAÇÃO ONDE A 
+INFORMAÇÃO NÃO SEJA SENSÍVEL E POSSA SER COMPARTILHADA.
+
+QUANDO USAR POST?
+
+A INFOMAÇÃO VINDA DO POST É INVISIVEL PARA OUTROS,
+E NÃO TEM LIMITE DO TAMANHO DE DADOS ENVIADOS
+IDEAL PARA FORMULÁRIOS DE LOGIN, REGISTRO,
+E QUALQUER SITUAÇÃO ONDE A INFORMAÇÃO SEJA SENSÍVEL 
+OU EXCEDA O LIMITE DE CARACTERES DO GET.
 
 
+PRIMEIRA COISA A SE PENSAR EM PHP = SEGURANÇAAAAAA
 
+Comment: <textarea name="comment" rows="5" cols="40"></textarea>
+
+
+O QUE É A VARIAVEL $SERVER["PHP_SELF"]?
+É uma superglobal em PHP que retorna o caminho do FILENAME  do script em execução.
+É comumente usada em formulários  para o mesmo arquivo que o processa sem pular para uma 
+página diferente.
+
+o que é htmlspecialchars()?
+é usada para converter caracteres especiais em entidades HTML. substituindo caracteres 
+como <, >, &, " e ' por suas respectivas entidades HTML (&lt;, &gt;, &amp;, &quot; e &#039;).
+
+-->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,33 +104,44 @@
                 <h1 class="modal-title">Nova Tarefa</h1>
                 <button id="btnclosemodalnewtask" class="modal-close">✕</button>
                 <div class="form-new-task">
-                    <form>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
                         <div class="form-content"> 
                             <div class="form-group">
                                 <p>ID</p>
-                                <input id="id-task" name="id" type="number" min="1" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
+                                <label for="id-task"></label>
+                                <input value="<?php echo $id-task;?>" id="id-task" name="id" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
+                                <span class="error">* <?php echo $id-taskErr;?></span>
+                            
                             </div>
                             <div class="form-group">
                                 <p>Title</p>
-                                <input id="title-task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 100 caracteres">
+                                <label for="title-task" ></label>
+                                <input  id="title-task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 20 caracteres" >
+                                <span class="error">* <?php echo $title-taskErr;?></span>
+                            
                             </div>
                         </div>
                     
                         <div class="form-description"> 
                             <p>Description</p>
-                            <textarea class="task-modal-textarea" maxlength="100" placeholder="Descreva o objetivo da tarefa..." title="Máximo 500 caracteres"></textarea>
+                            <label for="description-task"></label>
+                            <textarea value="<?php echo $description-task;?>"   id="description-task" name="description" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
+                            <span class="error">* <?php echo $description-taskErr;?> </span>
+                            
                         </div>
                         
                         <div class="task-modal-intiate-status">
                             <div class="form-group">
-                                <label class="task-modal-label">Status Inicial</label>
-                                <select class="task-modal-select">
+                                <label for="status-initial" class="task-modal-label">Status Inicial</label>
+                                <select value="<?php echo $status-initial;?>"  id="status-initial" class="task-modal-select">
                                     <option>Desenv. Backend</option>
                                     <option>Review</option>
                                     <option>Published</option>
                                 </select>
+                                <span class="error">* <?php echo $status-initialErr;?></span>
+                            
                             </div>
-                            <button id="btncreatemodalnewtask" class="task-modal-btn-create">Create</button>
+                            <button id="btncreatemodalnewtask" type="submit" value="submit" class="task-modal-btn-create">Create</button>
                         </div>
                     </form>
                 </div>
@@ -275,6 +326,9 @@
                             <div class="task-modal-column">
                                 <div class="task-modal-section-title">HISTÓRICO RECENTE</div>
                                 <div class="task-modal-history">
+
+
+                                    <!-- utilizar datetime para histórico-->
                                     <div class="history-item">
                                         <span class="history-date">28/2:</span>
                                         <span class="history-text">Criado em Desenv. Backend</span>
