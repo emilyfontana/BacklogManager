@@ -42,6 +42,23 @@ o que é htmlspecialchars()?
 é usada para converter caracteres especiais em entidades HTML. substituindo caracteres 
 como <, >, &, " e ' por suas respectivas entidades HTML (&lt;, &gt;, &amp;, &quot; e &#039;).
 
+
+------
+
+
+Ajax - faz requisição em segundo plano sem refresh
+json(dados) formato serializado dos campos do formulário ex "nome:emily"
+
+UTILIZAR AMBOS PARA FORMULÁTIOS DE APIS APLICATIVOS MODERNOS E QUANDO PRECISA DE HIERARQUIA DE DADOS
+
+FETCH API + JSON
+
+não precisa de method e action pois não sera enviada diretamente para o php
+irá passar pelo js primeiro 
+
+form data para arquivos ou upload 
+
+
 -->
 
 <!DOCTYPE html>
@@ -104,20 +121,20 @@ como <, >, &, " e ' por suas respectivas entidades HTML (&lt;, &gt;, &amp;, &quo
                 <h1 class="modal-title">Nova Tarefa</h1>
                 <button id="btnclosemodalnewtask" class="modal-close">✕</button>
                 <div class="form-new-task">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+                    <form id="formNewTask">
                         <div class="form-content"> 
                             <div class="form-group">
                                 <p>ID</p>
                                 <label for="id-task"></label>
-                                <input value="<?php echo $id-task;?>" id="id-task" name="id" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
-                                <span class="error">* <?php echo $id-taskErr;?></span>
+                                <input  id="id-task" name="id" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
+                                <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
                             
                             </div>
                             <div class="form-group">
                                 <p>Title</p>
                                 <label for="title-task" ></label>
                                 <input  id="title-task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 20 caracteres" >
-                                <span class="error">* <?php echo $title-taskErr;?></span>
+                                <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
                             
                             </div>
                         </div>
@@ -125,20 +142,20 @@ como <, >, &, " e ' por suas respectivas entidades HTML (&lt;, &gt;, &amp;, &quo
                         <div class="form-description"> 
                             <p>Description</p>
                             <label for="description-task"></label>
-                            <textarea value="<?php echo $description-task;?>"   id="description-task" name="description" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
-                            <span class="error">* <?php echo $description-taskErr;?> </span>
+                            <textarea   id="description-task" name="description" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
+                            <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
                             
                         </div>
                         
                         <div class="task-modal-intiate-status">
                             <div class="form-group">
                                 <label for="status-initial" class="task-modal-label">Status Inicial</label>
-                                <select value="<?php echo $status-initial;?>"  id="status-initial" class="task-modal-select">
+                                <select  id="status-initial" class="task-modal-select">
                                     <option>Desenv. Backend</option>
                                     <option>Review</option>
                                     <option>Published</option>
                                 </select>
-                                <span class="error">* <?php echo $status-initialErr;?></span>
+                               <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
                             
                             </div>
                             <button id="btncreatemodalnewtask" type="submit" value="submit" class="task-modal-btn-create">Create</button>

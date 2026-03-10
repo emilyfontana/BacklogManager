@@ -11,6 +11,15 @@ const btnnewtask = document.getElementById("btnnewtask");
 const modalnewtask = document.getElementById("modalnewtask");
 const btnclosemodalnewtask = document.getElementById("btnclosemodalnewtask");
 const btncreatemodalnewtask = document.getElementById("btncreatemodalnewtask");
+// ----
+
+const idInput = document.getElementById("id-task");
+const titleInput = document.getElementById("title-task");
+const descriptionInput = document.getElementById("description-task");
+const statusSelect = document.getElementById("status-initial");
+
+
+
 
 // side menu
 const sidemenu = document.getElementById("sidemenu");
@@ -85,6 +94,124 @@ function closeTaskModal() {
     console.log("Task modal closed");
 }
 
+function getFormData() {
+        return {
+            id:        idInput?.value.trim()     ?? '',
+            titulo:    titleInput?.value.trim()  ?? '',
+            descricao: descInput?.value.trim()   ?? '',
+            status:    statusSelect?.value       ?? '',
+        };
+    }
+
+//verificar todos esses itens se estão corretos 
+// validação cliente 
+
+const validate = (() => {
+    const STATUS_VALIDOS = ['backend', 'review', 'published'];
+
+    function tarefa({ titulo, descricao, status }) {
+        const erros = {};
+
+        if (!titulo)
+            erros.titulo = 'Título é obrigatório';
+        else if (titulo.length > 20)
+            erros.titulo = 'Máximo 20 caracteres';
+
+        if (descricao.length > 50)
+            erros.descricao = 'Máximo 50 caracteres';
+
+        if (!STATUS_VALIDOS.includes(status))
+            erros.status = 'Status inválido';
+
+        return {
+            valido: Object.keys(erros).length === 0,
+            erros,
+        };
+    }
+
+    return { tarefa };
+})();
+
+
+// ── 3. CAMADA DE API ─────────────────────────────────────────────────────────
+
+const api = (() => {
+    // Lê o token CSRF da meta tag gerada pelo PHP
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content ?? '';
+
+    async function cadastrarTarefa(dados) {
+        const res = await fetch('tarefas/cadastrar.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken,          // enviado no header
+            },
+            body: JSON.stringify(dados),
+        });
+
+        // repassa o JSON independente do status HTTP
+        const json = await res.json();
+        return { status: res.status, ...json };
+    }
+
+    return { cadastrarTarefa };
+})();
+
+
+// ── HANDLER DE SUBMIT (orquestra as 3 camadas) ────────────────────────────────
+
+document.getElementById('formNewTask')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const dados = ui.getFormData();
+
+    // 1. valida no cliente primeiro (feedback imediato)
+    const { valido, erros: errosClient } = validate.tarefa(dados);
+    if (!valido) {
+        ui.showErrors(errosClient);
+        return;
+    }
+
+    ui.setLoading(true);
+
+    try {
+        const resultado = await api.cadastrarTarefa(dados);
+
+        if (resultado.sucesso) {
+            ui.close();
+
+            // dispara evento customizado para que app.js possa ouvir
+            // e adicionar o card ao board sem acoplamento
+            document.dispatchEvent(new CustomEvent('tarefa:criada', {
+                detail: {
+                    id:       resultado.id,
+                    titulo:   dados.titulo,
+                    descricao: dados.descricao,
+                    status:   dados.status,
+                }
+            }));
+
+        } else if (resultado.erros) {
+            // erros por campo vindos do PHP
+            ui.showErrors(resultado.erros);
+
+        } else {
+            // erro genérico (500, etc.)
+            alert('Erro: ' + (resultado.mensagem ?? 'Tente novamente'));
+        }
+
+    } catch (err) {
+        console.error('[modal-newtask] fetch falhou:', err);
+        alert('Falha na conexão com o servidor');
+
+    } finally {
+        ui.setLoading(false);
+    }
+});
+
+
+
+
 // -----------------------------
 // Wiring de eventos (com checagens)
 // -----------------------------
@@ -149,6 +276,42 @@ document.addEventListener('keydown', function(e) {
         if (modalnewtask && modalnewtask.classList.contains('active')) CloseNewTask();
     }
 });
+
+
+const form = document.querySelector("#forNewTask");
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData (form);
+    const data = Object.fromEntries(formData);
+
+    fetch("/api/salvar " , {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+
+    .then (response => response.json())
+    .then (result => console.log(result));
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //regras para utilizar 
 
