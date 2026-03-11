@@ -125,37 +125,37 @@ form data para arquivos ou upload
                         <div class="form-content"> 
                             <div class="form-group">
                                 <p>ID</p>
-                                <label for="id-task"></label>
-                                <input  id="id-task" name="id" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
-                                <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
+                                <label for="id_task"></label>
+                                <input  id="id_task" name="id" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
+                                <span class="form-error" id="id_error" role="alert" aria-live="polite"></span>
                             
                             </div>
                             <div class="form-group">
                                 <p>Title</p>
-                                <label for="title-task" ></label>
-                                <input  id="title-task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 20 caracteres" >
-                                <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
+                                <label for="title_task" ></label>
+                                <input  id="title_task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 20 caracteres" >
+                                <span class="form-error" id="title_error" role="alert" aria-live="polite"></span>
                             
                             </div>
                         </div>
                     
                         <div class="form-description"> 
                             <p>Description</p>
-                            <label for="description-task"></label>
-                            <textarea   id="description-task" name="description" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
-                            <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
+                            <label for="description_task"></label>
+                            <textarea   id="description_task" name="description" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
+                            <span class="form-error" id="description_error" role="alert" aria-live="polite"></span>
                             
                         </div>
                         
                         <div class="task-modal-intiate-status">
                             <div class="form-group">
-                                <label for="status-initial" class="task-modal-label">Status Inicial</label>
-                                <select  id="status-initial" class="task-modal-select">
+                                <label for="status_initial" class="task-modal-label">Status Inicial</label>
+                                <select  id="status_initial" class="task-modal-select">
                                     <option>Desenv. Backend</option>
                                     <option>Review</option>
                                     <option>Published</option>
                                 </select>
-                               <span class="form-error" id="title-error" role="alert" aria-live="polite"></span>
+                               <span class="form-error" id="status_error" role="alert" aria-live="polite"></span>
                             
                             </div>
                             <button id="btncreatemodalnewtask" type="submit" value="submit" class="task-modal-btn-create">Create</button>
