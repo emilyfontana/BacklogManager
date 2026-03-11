@@ -13,10 +13,10 @@ const btnclosemodalnewtask = document.getElementById("btnclosemodalnewtask");
 const btncreatemodalnewtask = document.getElementById("btncreatemodalnewtask");
 // ----
 
-const idInput = document.getElementById("id-task");
-const titleInput = document.getElementById("title-task");
-const descriptionInput = document.getElementById("description-task");
-const statusSelect = document.getElementById("status-initial");
+const idInput = document.getElementById("id_task");
+const titleInput = document.getElementById("title_task");
+const descriptionInput = document.getElementById("description_task");
+const statusSelect = document.getElementById("status_initial");
 
 
 
