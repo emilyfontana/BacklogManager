@@ -94,6 +94,44 @@ function closeTaskModal() {
     console.log("Task modal closed");
 }
 
+//
+
+
+document.getElementById('formNewTask').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    try{
+        const response = await fetch ('backend/backlog.php', {
+            method: "POST",
+            body: new FormData (e.target),
+            headers: {
+                'Accept': 'application/json',
+            },
+        });
+
+        const data = await response.json();
+        if (data.status === 'OK') {
+            e.target.reset(); // Limpa o formulário
+            alert(data.message); // Exibe mensagem de sucesso
+        } else if (data.status === 'Erro') {
+            alert(data.message); // Exibe mensagem de erro
+            document.getElementById(data.field)?.focus(); // Foca no campo com erro
+        }
+    } catch (error) {
+        console.error('Error:', error); // Trata erros de conexão ou de servidor
+    
+    }
+})
+
+
+
+
+
+
+
+/*
+
+
+
 function getFormData() {
         return {
             id:        idInput?.value.trim()     ?? '',
@@ -210,7 +248,7 @@ document.getElementById('formNewTask')?.addEventListener('submit', async (e) => 
 });
 
 
-
+*/
 
 // -----------------------------
 // Wiring de eventos (com checagens)
@@ -266,7 +304,7 @@ if (modalnewtask) {
 // Adiciona listeners do botão fechar/atualizar do modal "new task"
 // ERRO anterior: você havia obtido os elementos mas não havia ligado os botões a nenhuma ação.
 if (btnclosemodalnewtask) btnclosemodalnewtask.addEventListener("click", CloseNewTask);
-if (btnupdatemodalnewtask) btnupdatemodalnewtask.addEventListener("click", UpdateNewTask);
+//if (btnupdatemodalnewtask) btnupdatemodalnewtask.addEventListener("click", UpdateNewTask);
 
 // handler global de Escape (SINTAXE CORRIGIDA)
 document.addEventListener('keydown', function(e) {
@@ -277,7 +315,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-
+/*
 const form = document.querySelector("#forNewTask");
 
 form.addEventListener('submit', (e) => {
@@ -298,6 +336,8 @@ form.addEventListener('submit', (e) => {
     .then (result => console.log(result));
 
 });
+
+*/
 
 
 

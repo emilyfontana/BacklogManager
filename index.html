@@ -68,7 +68,7 @@ form data para arquivos ou upload
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Backlog Tracker</title>
     <link rel="stylesheet" href="public/css/style.css">
-    <script src="public/js/script.js" defer></script>
+    
 </head>
 <body>
 
@@ -121,19 +121,21 @@ form data para arquivos ou upload
                 <h1 class="modal-title">Nova Tarefa</h1>
                 <button id="btnclosemodalnewtask" class="modal-close">✕</button>
                 <div class="form-new-task">
+
+                    <!-- formulario api  -->
                     <form id="formNewTask">
                         <div class="form-content"> 
                             <div class="form-group">
                                 <p>ID</p>
                                 <label for="id_task"></label>
-                                <input  id="id_task" name="id" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
+                                <input  id="id_task" name="id_task" type="number" min="1" maxlength="6" required class="task-modal-input" placeholder="ID da tarefa" title="Apenas números positivos">
                                 <span class="form-error" id="id_error" role="alert" aria-live="polite"></span>
                             
                             </div>
                             <div class="form-group">
                                 <p>Title</p>
                                 <label for="title_task" ></label>
-                                <input  id="title_task" name="title" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 20 caracteres" >
+                                <input  id="title_task" name="title_task" required maxlength="20" placeholder="Título" class="task-modal-input" title="Máximo 20 caracteres" >
                                 <span class="form-error" id="title_error" role="alert" aria-live="polite"></span>
                             
                             </div>
@@ -142,7 +144,7 @@ form data para arquivos ou upload
                         <div class="form-description"> 
                             <p>Description</p>
                             <label for="description_task"></label>
-                            <textarea   id="description_task" name="description" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
+                            <textarea   id="description_task" name="description_task" class="task-modal-textarea" maxlength="50" placeholder="Descreva o objetivo da tarefa..." title="Máximo 50 caracteres"></textarea>
                             <span class="form-error" id="description_error" role="alert" aria-live="polite"></span>
                             
                         </div>
@@ -178,7 +180,7 @@ form data para arquivos ou upload
                     <p>Adicionar novo status</p>
                     <div class="new-status">
                         
-                        <input id="newstatus" name="newstatus" required maxlength="20" placeholder="Novo status" class="task-modal-input" title="Máximo 20 caracteres">
+                        <input id="newstatus" name="newstatus_task" required maxlength="20" placeholder="Novo status" class="task-modal-input" title="Máximo 20 caracteres">
 
                         <div class="btn-create-new-status">
                             <button id="btncreatenewstatus" class="task-modal-btn-create" type="submit" >Create</button>
@@ -392,6 +394,8 @@ form data para arquivos ou upload
             <p>&copy; 2026 Backlog Tracker. All rights reserved Emily.</p>
         </footer>
     </main>
+
+    <script src="public/js/script.js" defer></script>
 
 </body>
 </html>

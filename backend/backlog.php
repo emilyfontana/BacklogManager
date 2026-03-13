@@ -1,4 +1,33 @@
+
 <?php
+
+header('Content-Type: application/json');
+
+$id_task = $_POST['id_task'] ?? '';
+$title_task = $_POST['title_task'] ?? '';
+$description_task = $_POST['description_task'] ?? '';
+
+$response = ['status' => 'OK', 'description_task' => '', 'field' => ''];
+
+if (empty($id_task)) {
+    $response = ['status' => 'Erro', 'id_task' => 'Por favor, preencha o id.', 'field' => 'id_task'];
+} elseif (empty($title_task)) {
+    $response = ['status' => 'Erro', 'title_task' => 'Por favor, preencha o título.', 'field' => 'title_task'];
+
+} elseif (empty($description_task)) {
+    $response = ['status' => 'Erro', 'description_task' => 'Por favor, escreva uma descrição.', 'field' => 'description_task'];
+} else {
+    //
+    // Adicione aqui o código para enviar a mensagem por e-mail
+    //
+    // Se passar por todas as validações, considera a mensagem como enviada com sucesso
+    $response = ['status' => 'OK', 'description_task' => 'Mensagem enviada com sucesso!', 'field' => ''];
+}
+
+echo json_encode($response);
+
+
+/*
 //define variables and set to empty values
 $id_task = $title_task = $description_task = $status_initial = "";
 //define error variables and set to empty values
@@ -65,5 +94,5 @@ echo "ID: " . $id_task . "<br>";
 echo "Title: " . $title_task . "<br>";  
 echo "Description: " . $description_task . "<br>";
 echo "Status: " . $status_initial . "<br>";
-
+*/
 ?>
